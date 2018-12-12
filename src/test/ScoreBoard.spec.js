@@ -60,4 +60,24 @@ describe('PlayerForm Component', () => {
     expect(wrapper.state().message).toContain('serves');
     expect(spy).toHaveBeenCalledTimes(1);
   });
+  it('+++ check play button click', () => {
+    const spy = jest.spyOn(ScoreBoard.prototype, 'handlePlay');
+    Enzyme.shallow(<ScoreBoard players={players} />)
+      .setState({ toss: true })
+      .find('#playButton')
+      .simulate('click');
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+ 
+  it('+++ check score update on play button click', () => {
+    const spy = jest.spyOn(ScoreBoard.prototype, 'handlePlay');
+    let wrapper = Enzyme.shallow(<ScoreBoard players={players} />);
+    wrapper
+      .setState({ toss: true })
+      .find('#playButton')
+      .simulate('click');
+    expect(
+      wrapper.state().player1Points === 1 || wrapper.state().player2Points === 1
+    ).toBeTruthy();
+  });
 });

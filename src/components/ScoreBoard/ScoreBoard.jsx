@@ -12,9 +12,12 @@ export class ScoreBoard extends React.Component {
     this.state = {
       toss: false,
       message: "",
-      service: ''
+      service: '',
+      player1Points: 0,
+      player2Points: 0,
     }
     this.handleToss = this.handleToss.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
   };
   handleToss() {
     const player1Random = Math.random();
@@ -27,7 +30,22 @@ export class ScoreBoard extends React.Component {
     });
   }
 
+  handlePlay() {
+    const player1Random = Math.random();
+    const player2Random = Math.random();
+    this.setState({ message: '' });
+    this.setState(
+      prevState => {
+        let pointWinner =
+          player1Random > player2Random ? 'player1Points' : 'player2Points';
+
+        return { [pointWinner]: prevState[pointWinner] + 1 };
+      }
+    );
+  }
+
   render() {
+    const points = { 0: 'LOVE', 1: 15, 2: 30, 3: 40 };
     const { players } = this.props;
     return (
       <div>
@@ -55,7 +73,9 @@ export class ScoreBoard extends React.Component {
               </div>
 
               <div className="scoreBoardContents">
-
+                {points.hasOwnProperty(this.state.player1Points)
+                  ? points[this.state.player1Points]
+                  : 40}
               </div>
               <div className="scoreBoardContents">
 
@@ -74,7 +94,9 @@ export class ScoreBoard extends React.Component {
               </div>
 
               <div className="scoreBoardContents">
-
+                  {points.hasOwnProperty(this.state.player2Points)
+                    ? points[this.state.player2Points]
+                    : 40}
               </div>
               <div className="scoreBoardContents">
 
@@ -88,7 +110,7 @@ export class ScoreBoard extends React.Component {
                 id="playButton"
                 bsStyle="info"
                 bsSize="large"
-                onClick={this.handleServe}
+                onClick={this.handlePlay}
                 className="scoreboardButton"
                 disabled={this.state.stopPlay}>
                 Play

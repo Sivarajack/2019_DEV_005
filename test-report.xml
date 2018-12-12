@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" hostname="localhost" tests="2" failures="0" time="1.342" timestamp="2018-12-12T12:47:08">
+  <testsuite id="0" name="C:\ReactWS\2019_dev_005\src\App.test.js" errors="0" package="C:\ReactWS\2019_dev_005\src\App.test.js" hostname="localhost" tests="1" failures="0" time="0.888" timestamp="2018-12-12T13:04:02">
+    <properties>
+    </properties>
+    <testcase classname="renders without crashing" name="renders without crashing" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="1" name="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" hostname="localhost" tests="4" failures="0" time="2.122" timestamp="2018-12-12T13:04:02">
     <properties>
     </properties>
     <testcase classname="Testing PlayerForm component with store store" name="+++ check Prop matches with initialState" time="0">
     </testcase>
     <testcase classname="PlayerForm Component" name="+++ check toss button click and updates message" time="0">
+    </testcase>
+    <testcase classname="PlayerForm Component" name="+++ check play button click" time="0">
+    </testcase>
+    <testcase classname="PlayerForm Component" name="+++ check score update on play button click" time="0">
     </testcase>
     <system-out/>
     <system-err/>
