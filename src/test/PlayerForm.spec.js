@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import PlayerForm from '../components/PlayerForm/PlayerForm';
+import {PlayerForm} from '../components/PlayerForm/PlayerForm';
 
 Enzyme.configure({ adapter: new Adapter() });
 

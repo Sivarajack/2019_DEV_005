@@ -12,3 +12,14 @@
     margin-bottom: 0
 }
 
+.scoreboardButton{
+    height: 45px;
+    width: 100px;
+}
+#buttonContainer{
+    justify-content: center;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    
+}

@@ -6,7 +6,7 @@ import AppHeader from './components/AppHeader/AppHeader';
 import PlayerForm from './components/PlayerForm/PlayerForm';
 import ScoreBoard from './components/ScoreBoard/ScoreBoard';
 
-const App = props => {
+export const App = props => {
   const { showScoreBoard } = props;
   return (
     <div id="App" className="App container-fluid">

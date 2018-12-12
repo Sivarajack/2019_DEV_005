@@ -9,12 +9,29 @@ import './ScoreBoard.css';
 export class ScoreBoard extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      toss: false,
+      message: "",
+      service: ''
+    }
+    this.handleToss = this.handleToss.bind(this);
   };
+  handleToss() {
+    const player1Random = Math.random();
+    const player2Random = Math.random();
+    let resultantPlayer = player1Random > player2Random ? 'player1' : 'player2';
+    this.setState({
+      toss: true,
+      service: resultantPlayer,
+      message: `${this.props.players[resultantPlayer].name} serves`
+    });
+  }
+
   render() {
     const { players } = this.props;
     return (
-      <div id="scoreBoardContainer">
+      <div>
+        <div id="scoreBoardContainer">
         <Panel id="scoreBoardPanel">
           <Panel.Body>
             <div id="scoreBoardHeader">
@@ -65,9 +82,32 @@ export class ScoreBoard extends React.Component {
             </div>
           </Panel.Body>
         </Panel>
-
+        <div id="buttonContainer">
+            {this.state.toss ? (
+              <Button
+                id="playButton"
+                bsStyle="info"
+                bsSize="large"
+                onClick={this.handleServe}
+                className="scoreboardButton"
+                disabled={this.state.stopPlay}>
+                Play
+              </Button>
+            ) : (
+              <Button
+                id="tossButton"
+                bsStyle="info"
+                bsSize="large"
+                onClick={this.handleToss}
+                className="scoreboardButton">
+                Toss
+              </Button>
+            )}
+          </div>
+        </div>
+        <h3>{this.state.message}</h3>
       </div>
-
+     
 
     );
   }
