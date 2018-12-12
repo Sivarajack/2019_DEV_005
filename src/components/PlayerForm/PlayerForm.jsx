@@ -42,7 +42,7 @@ export default class PlayerForm extends React.Component {
                   id="player1"
                   type="text"
                   onChange={this.handleNameChange}
-                  value={}
+                  value=""
                 />
               </FormGroup>
               <FormGroup className="playerName">
@@ -53,7 +53,7 @@ export default class PlayerForm extends React.Component {
                   id="player2"
                   type="text"
                   onChange={this.handleNameChange}
-                  value={}
+                  value=""
                 />
               </FormGroup>
               <Button id="playerFormButton" bsStyle="info" type="submit">
