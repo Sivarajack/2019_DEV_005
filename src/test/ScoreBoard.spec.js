@@ -80,4 +80,19 @@ describe('PlayerForm Component', () => {
       wrapper.state().player1Points === 1 || wrapper.state().player2Points === 1
     ).toBeTruthy();
   });
+  it('+++ check handleServe() operation for dues condition', () => {
+    const wrapper = Enzyme.shallow(<ScoreBoard players={players} />);
+    wrapper.setState({ toss: true, player1Points: 3, player2Points: 3 });
+    const instance = wrapper.instance();
+    instance.handleScoreIncrement();
+    expect(wrapper.state('dues')).toBe(true);
+  });
+  it('+++ check handleServe() operation for Advantage condition', () => {
+    const wrapper = Enzyme.shallow(<ScoreBoard players={players} />);
+    wrapper.setState({ toss: true, player1Points: 3, player2Points: 4 });
+    const instance = wrapper.instance();
+    instance.handleScoreIncrement();
+
+    expect(wrapper.state('advantage')).toBe('player2');
+  });
 });

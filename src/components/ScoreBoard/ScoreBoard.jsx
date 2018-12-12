@@ -56,7 +56,7 @@ export class ScoreBoard extends React.Component {
   }
 
   handleScoreIncrement = () => {
-    if (this.state.player1Points >= 4 || this.state.player2Points >= 4) {
+    if (this.state.player1Points >= 3 || this.state.player2Points >= 3) {
       if (this.state.player1Points === this.state.player2Points) {
         this.setState({ dues: true, advantage: '' });
       }
