@@ -8,7 +8,7 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Panel from 'react-bootstrap/lib/Panel';
 import {
-  addPlayerName
+  addPlayerName, toggleScoreBoard
 } from '../../Redux/actions/player-form-actions';
 
 // this component handles function of getting player names and
@@ -21,9 +21,7 @@ export class PlayerForm extends React.Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-
-
+    
   handleNameChange(event) {
     const playerId = event.target.id;
     const { addPlayerName } = this.props;
@@ -31,7 +29,9 @@ export class PlayerForm extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-      }
+    const { toggleScoreBoard } = this.props;
+    toggleScoreBoard();
+  }
   render() {
     const { players } = this.props;
     return (
@@ -78,7 +78,8 @@ const mapStateToProps = state => {
 };
 const mapDipatchToProps = dispatch => {
   return {
-    addPlayerName: payload => dispatch(addPlayerName(payload))
+    addPlayerName: payload => dispatch(addPlayerName(payload)),
+    toggleScoreBoard: () => dispatch(toggleScoreBoard())
   };
 };
 export default connect(

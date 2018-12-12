@@ -7,4 +7,9 @@ export function addPlayerName(payload) {
   };
 }
 
+export function toggleScoreBoard() {
+  return {
+    type: TOGGLE_SCORE_BOARD
+  };
+}
 

@@ -6,7 +6,8 @@ const initialState = {
       player2: {
         name: ''
       }
-    }
+    },
+    showScoreBoard: ''
   };
   
   export default initialState;

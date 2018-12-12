@@ -1,2 +1,2 @@
 export const ADD_PLAYER_NAME = 'ADD_PLAYER_NAME';
-
+export const TOGGLE_SCORE_BOARD = 'TOGGLE_SCORE_BOARD';

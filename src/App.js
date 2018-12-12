@@ -1,20 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import { connect } from 'react-redux';
 import AppHeader from './components/AppHeader/AppHeader';
 import PlayerForm from './components/PlayerForm/PlayerForm';
 import ScoreBoard from './components/ScoreBoard/ScoreBoard';
 
-class App extends Component {
-  render() {
-    return (
-      <div id="App" className="App container-fluid">
+const App = props => {
+  const { showScoreBoard } = props;
+  return (
+    <div id="App" className="App container-fluid">
       <AppHeader />
       <PlayerForm />
-      <ScoreBoard />
-      </div>
-    );
-  }
-}
+      {showScoreBoard ? <ScoreBoard /> : ''}
+    </div>
+  );
+};
+const mapStateToProps = state => {
+  return {
+    showScoreBoard: state.showScoreBoard
+  };
+};
 
-export default App;
+export default connect(mapStateToProps)(App);

@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import {players} from './player-form-reducer';
+import {players, showScoreBoard} from './player-form-reducer';
 
-export default combineReducers({ players });
+export default combineReducers({ players, showScoreBoard });
