@@ -1,0 +1,14 @@
+#scoreBoardHeader, #scoreBoardPlayer1, #scoreBoardPlayer2, #scoreBoardContainer{
+    display: flex;
+    flex-direction: row
+}
+
+.scoreBoardContents{
+    width: 20%
+}
+
+#scoreBoardPanel{
+    width:80%;
+    margin-bottom: 0
+}
+
