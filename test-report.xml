@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\ReactWS\2019_dev_005\src\test\AppHeader.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\AppHeader.spec.js" hostname="localhost" tests="1" failures="0" time="8.311" timestamp="2018-12-12T13:32:26">
+  <testsuite id="0" name="C:\ReactWS\2019_dev_005\src\App.test.js" errors="0" package="C:\ReactWS\2019_dev_005\src\App.test.js" hostname="localhost" tests="1" failures="0" time="1.376" timestamp="2018-12-12T13:43:06">
+    <properties>
+    </properties>
+    <testcase classname="renders without crashing" name="renders without crashing" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="1" name="C:\ReactWS\2019_dev_005\src\test\PlayerForm.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\PlayerForm.spec.js" hostname="localhost" tests="2" failures="0" time="2.001" timestamp="2018-12-12T13:43:06">
+    <properties>
+    </properties>
+    <testcase classname="PlayerForm Component" name="Number of input boxes" time="0">
+    </testcase>
+    <testcase classname="PlayerForm Component" name="Name input function call" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="2" name="C:\ReactWS\2019_dev_005\src\test\AppHeader.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\AppHeader.spec.js" hostname="localhost" tests="1" failures="0" time="1.876" timestamp="2018-12-12T13:43:06">
     <properties>
     </properties>
     <testcase classname="Header Component" name="Renders Application Heading" time="0">
@@ -8,7 +26,7 @@
     <system-out/>
     <system-err/>
   </testsuite>
-  <testsuite id="1" name="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" hostname="localhost" tests="9" failures="0" time="8.67" timestamp="2018-12-12T13:32:26">
+  <testsuite id="3" name="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" hostname="localhost" tests="9" failures="0" time="2.173" timestamp="2018-12-12T13:43:06">
     <properties>
     </properties>
     <testcase classname="Testing PlayerForm component with store store" name="+++ check Prop matches with initialState" time="0">
@@ -32,20 +50,20 @@
     <system-out/>
     <system-err/>
   </testsuite>
-  <testsuite id="2" name="C:\ReactWS\2019_dev_005\src\App.test.js" errors="0" package="C:\ReactWS\2019_dev_005\src\App.test.js" hostname="localhost" tests="1" failures="0" time="9.108" timestamp="2018-12-12T13:32:26">
+  <testsuite id="4" name="C:\ReactWS\2019_dev_005\src\test\player-form-reducer.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\player-form-reducer.spec.js" hostname="localhost" tests="2" failures="0" time="2.626" timestamp="2018-12-12T13:43:06">
     <properties>
     </properties>
-    <testcase classname="renders without crashing" name="renders without crashing" time="0">
+    <testcase classname="Player-Form reducer" name="+++ check player reducer return expected result" time="0">
+    </testcase>
+    <testcase classname="Player-Form reducer" name="+++ check showScoreBoard reducer return expected result " time="0">
     </testcase>
     <system-out/>
     <system-err/>
   </testsuite>
-  <testsuite id="3" name="C:\ReactWS\2019_dev_005\src\test\PlayerForm.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\PlayerForm.spec.js" hostname="localhost" tests="2" failures="0" time="9.108" timestamp="2018-12-12T13:32:26">
+  <testsuite id="5" name="C:\ReactWS\2019_dev_005\src\test\configure-store.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\configure-store.spec.js" hostname="localhost" tests="1" failures="0" time="2.75" timestamp="2018-12-12T13:43:06">
     <properties>
     </properties>
-    <testcase classname="PlayerForm Component" name="Number of input boxes" time="0">
-    </testcase>
-    <testcase classname="PlayerForm Component" name="Name input function call" time="0">
+    <testcase classname="Testing configureStore" name="+++ check store to return initialState" time="0">
     </testcase>
     <system-out/>
     <system-err/>
