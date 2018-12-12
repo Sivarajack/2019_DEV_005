@@ -68,8 +68,68 @@ export class ScoreBoard extends React.Component {
       if (this.state.player2Points - this.state.player1Points >= 1) {
         this.setState({ advantage: 'player2', dues: false });
       }
+      if (this.state.player1Points - this.state.player2Points >= 2) {
+        this.gamePointCaculator('player1');
+      }
+      if (this.state.player2Points - this.state.player1Points >= 2) {
+        this.gamePointCaculator('player2');
+      }
     }
-  }
+  };
+  gamePointCaculator = player => {
+    this.setState(
+      prevState => {
+        return Object.assign({}, prevState, {
+          player1Points: 0,
+          player2Points: 0,
+          dues: false,
+          advantage: '',
+          [prevState.currentSet]: Object.assign(
+            {},
+            prevState[prevState.currentSet],
+            { [player]: prevState[prevState.currentSet][player] + 1 }
+          )
+        });
+      },
+      () => {
+        this.setPointCaculator();
+      }
+    );
+  };
+  setPointCaculator = () => {
+   
+    let setData = this.state[this.state.currentSet];
+    if (
+      (setData.player1 >= 4 || setData.player2 >= 4) &&
+      setData.player1 - setData.player2 >= 2
+    ) {
+      this.matchSetCalculator('player1Set', 'player1');
+    }
+    if (
+      (setData.player1 >= 4 || setData.player2 >= 4) &&
+      setData.player2 - setData.player1 >= 2
+    ) {
+      this.matchSetCalculator('player2Set', 'player2');
+    }
+  };
+  matchSetCalculator = (playerSet, playerName) => {
+    this.setState(
+      prevState => {
+        return {
+          currentSet: prevState.currentSet + 1,
+          [playerSet]: prevState[playerSet] + 1
+        };
+      },
+      () => {
+        if (this.state[playerSet] >= 2) {
+          this.setState({
+            message: `${this.props.players[playerName].name} wins!!`,
+            stopPlay: true
+          });
+        }
+      }
+    );
+  };
 
   render() {
     const points = { 0: 'LOVE', 1: 15, 2: 30, 3: 40 };
@@ -77,72 +137,72 @@ export class ScoreBoard extends React.Component {
     return (
       <div>
         <div id="scoreBoardContainer">
-        <Panel id="scoreBoardPanel">
-          <Panel.Body>
-            <div id="scoreBoardHeader">
-              <div className="scoreBoardContents">Player</div>
-              <div className="scoreBoardContents">Set1</div>
-              <div className="scoreBoardContents">Set2</div>
-              <div className="scoreBoardContents">Set3</div>
-              <div className="scoreBoardContents">Points</div>
-              <div className="scoreBoardContents" />
-            </div>
-            <div id="scoreBoardPlayer1">
-              <div className="scoreBoardContents">{players.player1.name}</div>
-              <div className="scoreBoardContents">
-
+          <Panel id="scoreBoardPanel">
+            <Panel.Body>
+              <div id="scoreBoardHeader">
+                <div className="scoreBoardContents">Player</div>
+                <div className="scoreBoardContents">Set1</div>
+                <div className="scoreBoardContents">Set2</div>
+                <div className="scoreBoardContents">Set3</div>
+                <div className="scoreBoardContents">Points</div>
+                <div className="scoreBoardContents" />
               </div>
-              <div className="scoreBoardContents">
+              <div id="scoreBoardPlayer1">
+                <div className="scoreBoardContents">{players.player1.name}</div>
+                <div className="scoreBoardContents">
+                  {this.state[1].player1}
+                </div>
+                <div className="scoreBoardContents">
+                  {this.state[2].player1}
+                </div>
+                <div className="scoreBoardContents">
+                  {this.state[3].player1}
+                </div>
 
-              </div>
-              <div className="scoreBoardContents">
-
-              </div>
-
-              <div className="scoreBoardContents">
-                {points.hasOwnProperty(this.state.player1Points)
-                  ? points[this.state.player1Points]
-                  : 40}
-              </div>
-              <div className="scoreBoardContents">
-              {this.state.advantage === 'player1'
+                <div className="scoreBoardContents">
+                  {points.hasOwnProperty(this.state.player1Points)
+                    ? points[this.state.player1Points]
+                    : 40}
+                </div>
+                <div className="scoreBoardContents">
+                  {this.state.advantage === 'player1'
                     ? 'Advantage'
                     : this.state.dues
                     ? 'D'
                     : ''}
+                </div>
               </div>
-            </div>
-            <div id="scoreBoardPlayer2">
-              <div className="scoreBoardContents">{players.player2.name}</div>
-              <div className="scoreBoardContents">
+              <div id="scoreBoardPlayer2">
+                <div className="scoreBoardContents">{players.player2.name}</div>
+                <div className="scoreBoardContents">
+                  {this.state[1].player2}
+                </div>
+                <div className="scoreBoardContents">
+                  {this.state[2].player2}
+                </div>
+                <div className="scoreBoardContents">
+                  {this.state[3].player2}
+                </div>
 
-              </div>
-              <div className="scoreBoardContents">
-
-              </div>
-              <div className="scoreBoardContents">
-
-              </div>
-
-              <div className="scoreBoardContents">
+                <div className="scoreBoardContents">
                   {points.hasOwnProperty(this.state.player2Points)
                     ? points[this.state.player2Points]
                     : 40}
-              </div>
-              <div className="scoreBoardContents">
-                {this.state.advantage === 'player2'
+                </div>
+                <div className="scoreBoardContents">
+                  {this.state.advantage === 'player2'
                     ? 'Advantage'
                     : this.state.dues
                     ? 'D'
                     : ''}
+                </div>
               </div>
-            </div>
-          </Panel.Body>
-        </Panel>
-        <div id="buttonContainer">
+            </Panel.Body>
+          </Panel>
+          <div id="buttonContainer">
             {this.state.toss ? (
               <Button
-                id="playButton"
+                id="playButton"s
                 bsStyle="info"
                 bsSize="large"
                 onClick={this.handlePlay}
@@ -164,9 +224,7 @@ export class ScoreBoard extends React.Component {
         </div>
         <h3>{this.state.message}</h3>
       </div>
-     
-
-    );
+    )
   }
 }
 const mapStateToProps = state => {

@@ -95,4 +95,29 @@ describe('PlayerForm Component', () => {
 
     expect(wrapper.state('advantage')).toBe('player2');
   });
+  it('+++ check gamePointCalculator function to update State', () => {
+    const wrapper = Enzyme.shallow(<ScoreBoard players={players} />);
+    wrapper.setState({ toss: true });
+    const instance = wrapper.instance();
+    instance.gamePointCaculator('player1');
+
+    expect(wrapper.state('1')).toEqual({ player1: 1, player2: 0 });
+  });
+  it('+++ check setPointCalculator function to update State', () => {
+    const wrapper = Enzyme.shallow(<ScoreBoard players={players} />);
+    wrapper.setState({ toss: true, 1: { player1: 0, player2: 4 } });
+    const instance = wrapper.instance();
+    instance.setPointCaculator();
+
+    expect(wrapper.state('player2Set')).toBe(1);
+  });
+  it('+++ check matchSetCalculator function to update State', () => {
+    const wrapper = Enzyme.shallow(<ScoreBoard players={players} />);
+    wrapper.setState({ toss: true, player2Set: 1 });
+    const instance = wrapper.instance();
+    instance.matchSetCalculator('player2Set', 'player2');
+
+    expect(wrapper.state('player2Set')).toBe(2);
+    expect(wrapper.state('stopPlay')).toBe(true);
+  });
 });

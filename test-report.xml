@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite id="0" name="C:\ReactWS\2019_dev_005\src\App.test.js" errors="0" package="C:\ReactWS\2019_dev_005\src\App.test.js" hostname="localhost" tests="1" failures="0" time="1.743" timestamp="2018-12-12T13:24:49">
+  <testsuite id="0" name="C:\ReactWS\2019_dev_005\src\test\AppHeader.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\AppHeader.spec.js" hostname="localhost" tests="1" failures="0" time="8.311" timestamp="2018-12-12T13:32:26">
     <properties>
     </properties>
-    <testcase classname="renders without crashing" name="renders without crashing" time="0">
+    <testcase classname="Header Component" name="Renders Application Heading" time="0">
     </testcase>
     <system-out/>
     <system-err/>
   </testsuite>
-  <testsuite id="1" name="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" hostname="localhost" tests="6" failures="0" time="2.218" timestamp="2018-12-12T13:24:49">
+  <testsuite id="1" name="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\ScoreBoard.spec.js" hostname="localhost" tests="9" failures="0" time="8.67" timestamp="2018-12-12T13:32:26">
     <properties>
     </properties>
     <testcase classname="Testing PlayerForm component with store store" name="+++ check Prop matches with initialState" time="0">
@@ -22,6 +22,30 @@
     <testcase classname="PlayerForm Component" name="+++ check handleServe() operation for dues condition" time="0">
     </testcase>
     <testcase classname="PlayerForm Component" name="+++ check handleServe() operation for Advantage condition" time="0">
+    </testcase>
+    <testcase classname="PlayerForm Component" name="+++ check gamePointCalculator function to update State" time="0">
+    </testcase>
+    <testcase classname="PlayerForm Component" name="+++ check setPointCalculator function to update State" time="0">
+    </testcase>
+    <testcase classname="PlayerForm Component" name="+++ check matchSetCalculator function to update State" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="2" name="C:\ReactWS\2019_dev_005\src\App.test.js" errors="0" package="C:\ReactWS\2019_dev_005\src\App.test.js" hostname="localhost" tests="1" failures="0" time="9.108" timestamp="2018-12-12T13:32:26">
+    <properties>
+    </properties>
+    <testcase classname="renders without crashing" name="renders without crashing" time="0">
+    </testcase>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+  <testsuite id="3" name="C:\ReactWS\2019_dev_005\src\test\PlayerForm.spec.js" errors="0" package="C:\ReactWS\2019_dev_005\src\test\PlayerForm.spec.js" hostname="localhost" tests="2" failures="0" time="9.108" timestamp="2018-12-12T13:32:26">
+    <properties>
+    </properties>
+    <testcase classname="PlayerForm Component" name="Number of input boxes" time="0">
+    </testcase>
+    <testcase classname="PlayerForm Component" name="Name input function call" time="0">
     </testcase>
     <system-out/>
     <system-err/>
