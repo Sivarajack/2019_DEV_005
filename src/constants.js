@@ -1,0 +1,2 @@
+export const ADD_PLAYER_NAME = 'ADD_PLAYER_NAME';
+
