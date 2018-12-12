@@ -15,6 +15,14 @@ export class ScoreBoard extends React.Component {
       service: '',
       player1Points: 0,
       player2Points: 0,
+      player1Set: 0,
+      player2Set: 0,
+      1: { player1: 0, player2: 0 },
+      2: { player1: 0, player2: 0 },
+      3: { player1: 0, player2: 0 },
+      currentSet: 1,
+      advantage: '',
+      dues: false,
     }
     this.handleToss = this.handleToss.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
@@ -40,8 +48,27 @@ export class ScoreBoard extends React.Component {
           player1Random > player2Random ? 'player1Points' : 'player2Points';
 
         return { [pointWinner]: prevState[pointWinner] + 1 };
+      },
+      () => {
+        this.handleScoreIncrement();
       }
     );
+  }
+
+  handleScoreIncrement = () => {
+    if (this.state.player1Points >= 4 || this.state.player2Points >= 4) {
+      if (this.state.player1Points === this.state.player2Points) {
+        this.setState({ dues: true, advantage: '' });
+      }
+    }
+    if (this.state.player1Points > 3 || this.state.player2Points > 3) {
+      if (this.state.player1Points - this.state.player2Points >= 1) {
+        this.setState({ advantage: 'player1', dues: false });
+      }
+      if (this.state.player2Points - this.state.player1Points >= 1) {
+        this.setState({ advantage: 'player2', dues: false });
+      }
+    }
   }
 
   render() {
@@ -78,7 +105,11 @@ export class ScoreBoard extends React.Component {
                   : 40}
               </div>
               <div className="scoreBoardContents">
-
+              {this.state.advantage === 'player1'
+                    ? 'Advantage'
+                    : this.state.dues
+                    ? 'D'
+                    : ''}
               </div>
             </div>
             <div id="scoreBoardPlayer2">
@@ -99,7 +130,11 @@ export class ScoreBoard extends React.Component {
                     : 40}
               </div>
               <div className="scoreBoardContents">
-
+                {this.state.advantage === 'player2'
+                    ? 'Advantage'
+                    : this.state.dues
+                    ? 'D'
+                    : ''}
               </div>
             </div>
           </Panel.Body>
